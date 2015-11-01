@@ -1,0 +1,20 @@
+- name: Install machine learning packages
+  apt: name={{ item }} update_cache=yes force=yes state=installed
+  with_items:
+    - python3-setuptools
+    - python3-scipy
+    - python3-numpy
+    - python3-scipy
+    - libatlas-dev
+    - libatlas3gf-base
+    - python-matplotlib
+    - ipython
+    - ipython-notebook
+    - python-pandas
+    - python-sympy
+    - python-nose
+  tags: packages
+
+- name: Install packages required by the app inside virtualenv
+  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
+  sudo: no

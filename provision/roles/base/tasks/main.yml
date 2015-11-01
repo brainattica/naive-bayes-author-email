@@ -1,0 +1,39 @@
+- name: Ensure OpenSSl and libssl are the latest versions
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - openssl
+    - libssl-dev
+    - libssl-doc
+  tags: packages
+
+- name: Install base packages
+  apt: name={{ item }} update_cache=yes force=yes state=installed
+  with_items:
+    - build-essential
+    - ntp
+    - htop
+    - git
+    - python-dev
+    - python-pip
+    - python3-dev
+    - python3-pip
+    - python-pycurl
+    - git
+    - libncurses5-dev
+    - libevent-dev
+    - libffi-dev
+    - vim
+    - python-all-dev
+    - virtualenvwrapper
+    - libcurl4-gnutls-dev
+    - librtmp-dev 
+    - gfortran
+    - libopenblas-dev
+    - liblapack-dev
+  tags: packages
+
+- name: Install virtualenv
+  pip: name=virtualenv
+  tags: packages
+
+- pip: name=virtualenvwrapper

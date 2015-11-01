@@ -1,0 +1,15 @@
+project_name: zuul
+application_name: zuul.deduce
+
+db_user: brainattica
+db_name: zuul_db
+db_password: BrainAttic
+db_name_tests: zuul_db_tests
+
+python_version: "python3.4"
+
+virtualenv_name: "ZuulDeduce"
+virtualenv_path: "/home/vagrant/.virtualenvs/{{ virtualenv_name }}"
+project_path: "/vagrant"
+
+requirements_file: "{{ project_path }}/requirements/dev.txt"

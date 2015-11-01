@@ -1,0 +1,8 @@
+---
+
+- name: Create virtualenv path
+  file: path={{ virtualenv_path }} state=directory
+
+- name: Create the virtualenv
+  command: virtualenv {{ virtualenv_path }} --no-site-packages --distribute -p /usr/bin/{{ python_version }}
+           creates={{ virtualenv_path }}/bin/activate
